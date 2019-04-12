@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.yrk.mybatis.mapper.UserMapper;
 import com.yrk.mybatis.model.User;
 import com.yrk.mybatis.service.UserService;
 
@@ -23,9 +24,12 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 	
+	@Autowired
+	private UserMapper userMapper;
+	
 	@RequestMapping("/getUsers")
 	public List<User> getUsers() {
-		return userService.getUsers();
+		return userMapper.getAll();
 	}
 	
 	@RequestMapping("/getUser/{id}")

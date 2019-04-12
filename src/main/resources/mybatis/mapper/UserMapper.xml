@@ -5,12 +5,12 @@
         <id column="id" property="id" jdbcType="BIGINT" />
         <result column="userName" property="userName" jdbcType="VARCHAR" />
         <result column="passWord" property="passWord" jdbcType="VARCHAR" />
-        <result column="user_sex" property="userSex" javaType="com.neo.enums.UserSexEnum"/>
+        <result column="gender" property="gender" javaType="com.yrk.mybatis.enums.Gender"/>
         <result column="nick_name" property="nickName" jdbcType="VARCHAR" />
     </resultMap>
     
     <sql id="Base_Column_List" >
-        id, userName, passWord, user_sex, nick_name
+        id, userName, passWord, gender, nick_name
     </sql>
 
     <select id="getAll" resultMap="BaseResultMap"  >
@@ -29,9 +29,9 @@
     <insert id="insert" parameterType="com.yrk.mybatis.model.User" >
        INSERT INTO 
        		users
-       		(userName,passWord,user_sex) 
+       		(userName,passWord,gender) 
        	VALUES
-       		(#{userName}, #{passWord}, #{userSex})
+       		(#{userName}, #{passWord}, #{gender})
     </insert>
     
     <update id="update" parameterType="com.yrk.mybatis.model.User" >
